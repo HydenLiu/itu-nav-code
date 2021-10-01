@@ -2,6 +2,7 @@
   "name": "sunupdong-blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sunupdong.github.io/blog/",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@babel/helper-validator-identifier": "^7.15.7",
@@ -15,6 +16,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "antd": "^4.16.13",
+    "axios": "^0.22.0",
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.7",
@@ -141,14 +143,14 @@
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "babel-eslint": "^10.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "eslint": "^7.11.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.9.2",
@@ -163,6 +165,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "proxy": "https://weibo.com"
+  }
 }

@@ -1,21 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Alert, Button } from 'antd'
+import { Alert, Button, Row, Col } from 'antd'
+import axios from 'axios'
 import './App.css'
 
 interface IData{
-  mid: string,
-  category: string,
-  emoticon: string,
-  flag: number,
-  is_hot: number,
-  note: string,
-  num: number,
-  onboard_time: number,
-  rank: number,
-  realpos: number,
-  subject_querys: string,
-  topic_flag: number,
-  word: string
+  hot_word: string,
+  hot_word_num: string,
+  url: string
 }
 
 function App() {
@@ -23,35 +14,44 @@ function App() {
 
 
   useEffect(() => {
-    fetch('/ajax/side/hotSearch')
-      .then(response => response.json())
-      .then(json => {
-        setData(json.data.realtime)
-      })
+    axios.get('https://v2.alapi.cn/api/new/wbtop', {
+      params: {
+        num: 50,
+        token: 'YaXkpHvm3IgSheyj'
+      }
+    }).then(({ data }) => {
+      return data
+    }).then(({ data }) => {
+      setData(data)
+    })
   }, [])
 
   const goto = useCallback((item: IData) => {
-    window.location.href = `https://weibo.com/search?type=1&q=#${item.word}#`
+    window.location.href = item.url
   }, [])
 
   return (
     <div className='App'>
       <div className='App-header'>
-        {
-          data.map(item => {
-            return (
-              <Alert
-                key={item.mid}
-                message={item.word}
-                type='info'
-                action={
-                  <Button size='small' onClick={() => goto(item)} type='text'>
-                    goto
-                  </Button>
-                }
-              />)
-          })
-        }
+        <Row justify='space-between' align='middle'>
+          {
+            data.map(item => {
+              return (
+                <Col span={10} key={item.hot_word}>
+                  <Alert
+                    message={item.hot_word}
+                    type='info'
+                    action={
+                      <Button size='small' onClick={() => goto(item)} type='text'>
+                        goto
+                      </Button>
+                    }
+                  />
+                </Col>
+              )
+            })
+          }
+        </Row>
       </div>
     </div>
   )
