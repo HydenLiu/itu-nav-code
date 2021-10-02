@@ -1,0 +1,157 @@
+/*主页样式*/
+body {
+  user-select: none;
+  background: #282c34 !important;
+}
+
+.index {
+  padding-bottom: 60px;
+}
+
+.card-wrapper {
+  transition: all;
+  transition-duration: 300ms;
+  width: 720px;
+  min-height: 50px;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card .ant-card-body {
+  padding: 0 !important;
+}
+
+.card .ant-tabs-tab {
+  margin: 0 16px;
+}
+
+.card .hot-list-item {
+  width: 100%;
+  font-size: 13px;
+  color: #555;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-card-grid:hover .resource-name {
+  color: #1890ff;
+}
+
+.resource-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 8px;
+}
+
+.hot-list-item .resource-name {
+  margin: 0;
+  display: block !important;
+}
+
+.site-title {
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.search-logo {
+  width: 210px;
+  cursor: pointer;
+  border-radius: 5px;
+  /*background: rgba(0, 0, 0, 0.1);*/
+  padding: 16px;
+  box-sizing: content-box !important;
+}
+
+.search-logo:hover {
+  opacity: 0.7;
+}
+
+.search-wrapper {
+  width: 640px;
+  max-width: 90%;
+  margin: 0 auto 70px;
+}
+
+.search .ant-input {
+  border-radius: 24px 0 0 24px;
+  font-size: 16px;
+  line-height: 2 !important;
+  color: #333;
+  letter-spacing: 1px;
+  text-indent: 20px;
+}
+
+.search .anticon-search {
+  font-size: 21px;
+}
+
+.search .ant-input-search-button {
+  height: 47px !important;
+  line-height: 47px !important;
+  width: 100px;
+  border-radius: 0 24px 24px 0 !important;
+}
+
+.search .ant-input-group-addon {
+  background: none;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 0;
+  overflow: hidden;
+  z-index: -100;
+  background: url('../assets/win_bg.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.fix-group {
+  position: fixed !important;
+  bottom: 16px;
+  right: 16px;
+}
+
+.ant-drawer .ant-drawer-content {
+  background: none;
+}
+
+.ant-drawer-close {
+  color: #fff !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+}
+
+.ant-drawer-close:focus, .ant-drawer-close:hover {
+  color: #1890ff !important;
+}
+
+.loading-spin{
+  min-height: 50px;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .resource-name {
+    display: none;
+  }
+
+  .bg{
+    background-image: url("../assets/phone_bg.jpg");
+  }
+}
