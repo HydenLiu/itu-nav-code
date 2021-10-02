@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {AppContainer} from 'react-hot-loader'
+import { AppContainer } from 'react-hot-loader'
 
 // Your top level component
 import App from './App'
@@ -16,7 +16,7 @@ if (typeof document !== 'undefined') {
     ? ReactDOM.hydrate
     : ReactDOM.render
 
-  const render = Comp => {
+  const render = (Comp: any) => {
     renderMethod(
       <AppContainer>
         <Comp />
@@ -29,7 +29,9 @@ if (typeof document !== 'undefined') {
   render(App)
 
   // Hot Module Replacement
+  /* @ts-ignore*/
   if (module && module.hot) {
+    /* @ts-ignore*/
     module.hot.accept('./App', () => {
       render(App)
     })
