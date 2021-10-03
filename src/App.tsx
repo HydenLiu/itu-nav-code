@@ -3,7 +3,7 @@ import { Root, Routes } from 'react-static'
 import { Spin } from 'antd'
 import { Router } from '@reach/router'
 import 'antd/dist/antd.min.css'
-import './app.css'
+import './styles/app.scss'
 
 function App() {
   // loading

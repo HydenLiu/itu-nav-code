@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Avatar, Card, Input, message, Button, Tooltip, Switch, Spin } from 'antd'
 import { SearchOutlined, GithubOutlined } from '@ant-design/icons'
 import baidu from '../assets/baidu.png'
 import google from '../assets/google.png'
 import resourceData from '../utils/resourceData'
-import axios from 'axios'
-import './index.css'
-import './ghost.css'
+import Request from '../utils/request'
+import './index.scss'
+import '../styles/ghost.scss'
 
 const { Search } = Input
-
-const gridStyle = {
-  width: '25%',
-  textAlign: 'center',
-  fontSize: '13px',
-  color: '#555'
-}
 
 const localStorage = window.localStorage
 
@@ -24,19 +17,17 @@ export default () => {
   const [hotData, setHotData] = useState([])
   const [isLoad, setIsLoad] = useState(false)
 
-  useEffect(() => {
+  const getWebHotList = useCallback(() => {
     setIsLoad(true)
+    Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(res => {
+      setHotData(res.data)
+    }).finally(() => {
+      setIsLoad(false)
+    })
+  }, [])
 
-    axios.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj')
-    // @ts-ignore
-      .then(({ data }) => {
-        return data
-        // @ts-ignore
-      }).then(({ data }) => {
-        setHotData(data)
-      }).finally(() => {
-        setIsLoad(false)
-      })
+  useEffect(() => {
+    getWebHotList()
   }, [])
 
   // 透明模式
@@ -63,8 +54,7 @@ export default () => {
 
   const renderViewByTabKey = resourceData.map((resource, index) =>
     <a href={resource.link} target='_blank' key={index} rel='noreferrer'>
-      {/* @ts-ignore*/}
-      <Card.Grid style={gridStyle}>
+      <Card.Grid className='gird-style'>
         <Avatar shape='square' src={resource.icon} />
         <div className='resource-name'>{resource.name}</div>
       </Card.Grid>
@@ -81,7 +71,7 @@ export default () => {
   )
 
   return (
-    <div className={`index${ghostClose ? '' : ' ghost'}`}>
+    <main className={`pb-px-60 ${ghostClose ? '' : 'ghost'}`}>
       <div className='bg' />
       <div style={{ textAlign: 'center', margin: '104px 0 34px' }}>
         <img src={isBaidu ? baidu : google} alt={isBaidu ? '百度' : '谷歌'} className='search-logo'
@@ -104,7 +94,7 @@ export default () => {
         }
       </div>
       <div className='card-wrapper mt-px-40'>
-        <h3 className='resource-name'>微博热搜 : </h3>
+        <h3 className='resource-title'>微博热搜 : </h3>
         {
           <Card className='card' bordered={false}>
             <Spin spinning={isLoad} className='loading-spin'>
@@ -132,6 +122,6 @@ export default () => {
           />
         </Tooltip>
       </div>
-    </div>
+    </main>
   )
 }

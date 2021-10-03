@@ -1,13 +1,4 @@
 /*主页样式*/
-body {
-  user-select: none;
-  background: #282c34 !important;
-}
-
-.index {
-  padding-bottom: 60px;
-}
-
 .card-wrapper {
   transition: all;
   transition-duration: 300ms;
@@ -19,26 +10,39 @@ body {
   overflow: hidden;
 }
 
-.card .ant-card-body {
-  padding: 0 !important;
-}
+.card {
+  .ant-card-body {
+    padding: 0 !important;
+  }
 
-.card .ant-tabs-tab {
-  margin: 0 16px;
-}
+  .ant-tabs-tab {
+    margin: 0 16px;
+  }
 
-.card .hot-list-item {
-  width: 100%;
-  font-size: 13px;
-  color: #555;
-  padding: 10px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .hot-list-item {
+    width: 100%;
+    font-size: 13px;
+    color: #555;
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .ant-card-grid:hover .resource-name {
   color: #1890ff;
+}
+
+.gird-style {
+  width: 25%;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+.resource-title {
+  color: #fff;
 }
 
 .resource-name {
@@ -137,13 +141,8 @@ body {
   color: #1890ff !important;
 }
 
-.loading-spin{
+.loading-spin {
   min-height: 50px;
-}
-
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 @media screen and (max-width: 480px) {
@@ -151,7 +150,7 @@ body {
     display: none;
   }
 
-  .bg{
+  .bg {
     background-image: url("../assets/phone_bg.jpg");
   }
 }

@@ -11,11 +11,11 @@ export default {
   }) => (
     <Html lang='en-US'>
       <Head>
-        <meta charSet='UTF-8' />
+        <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>艾兔db - 程序员导航</title>
         <meta name='description' content='艾兔,艾兔网,程序员导航,导航主页,编程导航,导航网站' />
-        <meta name='keywords' content='艾兔,艾兔网,程序员导航,主页,编程,程序员,导航,资源,编程导航' />
+        <meta name='keywords' content='艾兔,艾兔网,艾兔db,程序员导航,主页,编程,程序员,导航,资源,编程导航' />
         <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
         <script src='baiduAnalyze.js'></script>
       </Head>
@@ -30,6 +30,7 @@ export default {
     host: '127.0.0.1'
   },
   plugins: [
+    ['react-static-plugin-sass'],
     ['react-static-plugin-typescript', { typeCheck: false }],
     [
       require.resolve('react-static-plugin-source-filesystem'),
