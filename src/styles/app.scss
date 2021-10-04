@@ -3,8 +3,17 @@ body {
   user-select: none;
 }
 
+p {
+  margin: 0;
+}
+
 ::-webkit-scrollbar {
   display: none;
+}
+
+@font-face {
+  font-family: "Digital-7 Mono";
+  src: url("../assets/fonts/digital-7-mono.ttf") format("truetype");
 }
 
 .center-container {
@@ -16,10 +25,79 @@ body {
   background: #f5f5f5;
 }
 
+.next-box {
+  width: 90vw !important;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
 .mt-px-40 {
   margin-top: 40px;
 }
 
+.ml-px-10 {
+  margin-left: 10px;
+}
+
+.ml-px-20 {
+  margin-left: 20px;
+}
+
 .pb-px-60 {
   padding-bottom: 60px;
+}
+
+$colors: (
+  'danger':#F05D6F,
+  'whilt':#FFFFFF,
+  'blue': #0091FF,
+  'faild': #c1c1c1,
+  'success': #67C23A
+);
+
+@each $colorKey,
+$color in $colors {
+  .text-#{$colorKey} {
+    color: $color !important;
+  }
+  .bg-#{$colorKey} {
+    background-color: $color !important;
+  }
+  .border-c-#{$colorKey} {
+    border-color: $color !important;
+  }
+}
+
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var !important;
+  }
+}
+
+$flex-jc: (start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+$flex-ai: (start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+
+@each $key,
+$value in $flex-jc {
+  .jc-#{$key} {
+    display: flex;
+    justify-content: $value !important;
+  }
+}
+
+@each $key,
+$value in $flex-ai {
+  .ai-#{$key} {
+    align-items: $value !important;
+  }
 }

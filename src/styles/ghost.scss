@@ -1,5 +1,11 @@
 /*透明主题*/
 .ghost {
+  // 导航部分
+  .nav-wrapper{
+    background: #000;
+    color: #fff;
+  }
+
   .card {
     background: none !important;
 

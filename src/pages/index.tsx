@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Avatar, Card, Input, message, Button, Tooltip, Switch, Spin } from 'antd'
 import { SearchOutlined, GithubOutlined } from '@ant-design/icons'
-import baidu from '../assets/baidu.png'
-import google from '../assets/google.png'
-import resourceData from '../utils/resourceData'
-import Request from '../utils/request'
+import baidu from '@/assets/baidu.png'
+import google from '@/assets/google.png'
+import resourceData from '@/utils/resourceData'
+import Request from '@/utils/request'
+import '@/styles/ghost.scss'
+import NavBar from '@/components/NavBar'
 import './index.scss'
-import '../styles/ghost.scss'
 
 const { Search } = Input
 
@@ -71,56 +72,59 @@ export default () => {
   )
 
   return (
-    <main className={`pb-px-60 ${ghostClose ? '' : 'ghost'}`}>
-      <div className='bg' />
-      <div style={{ textAlign: 'center', margin: '104px 0 34px' }}>
-        <img src={isBaidu ? baidu : google} alt={isBaidu ? '百度' : '谷歌'} className='search-logo'
-          onClick={() => setIsBaidu(!isBaidu)}
-        />
-      </div>
-      <div className='search-wrapper'>
-        <Search
-          enterButton={<Button type={ghostClose ? 'primary' : 'ghost'}><SearchOutlined /></Button>}
-          size='large'
-          className='search'
-          onSearch={doSearch}
-        />
-      </div>
-      <div className='card-wrapper'>
-        {
-          <Card className='card' bordered={false}>
-            {renderViewByTabKey}
-          </Card>
-        }
-      </div>
-      <div className='card-wrapper mt-px-40'>
-        <h3 className='resource-title'>微博热搜 : </h3>
-        {
-          <Card className='card' bordered={false}>
-            <Spin spinning={isLoad} className='loading-spin'>
-              {renderViewByHot}
-            </Spin>
-          </Card>
-        }
-      </div>
-      <div className='fix-group'>
-        <Switch
-          checkedChildren='白底'
-          unCheckedChildren='透明'
-          checked={ghostClose}
-          onChange={toggleGhost}
-        />
-        {/* <Tooltip title="切换封面">*/}
-        {/*  <Button type={ghostClose ? 'primary' : 'ghost'} size="small" shape="round" icon={<PictureOutlined />}*/}
-        {/*          style={{ marginLeft: 8 }}*/}
-        {/*          onClick={() => setDrawerVisible(true)} />*/}
-        {/* </Tooltip>*/}
-        <Tooltip title='项目详情'>
-          <Button type={ghostClose ? 'primary' : 'ghost'} size='small' shape='round' icon={<GithubOutlined />}
-            style={{ marginLeft: 8 }}
-            onClick={() => window.open('https://github.com/sunupdong')}
+    <main className={`main pb-px-60 ${ghostClose ? '' : 'ghost'}`}>
+      <NavBar />
+      <div className='next-box'>
+        <div className='bg' />
+        <div style={{ textAlign: 'center', margin: '104px 0 34px' }}>
+          <img src={isBaidu ? baidu : google} alt={isBaidu ? '百度' : '谷歌'} className='search-logo'
+            onClick={() => setIsBaidu(!isBaidu)}
           />
-        </Tooltip>
+        </div>
+        <div className='search-wrapper'>
+          <Search
+            enterButton={<Button type={ghostClose ? 'primary' : 'ghost'}><SearchOutlined /></Button>}
+            size='large'
+            className='search'
+            onSearch={doSearch}
+          />
+        </div>
+        <div className='card-wrapper'>
+          {
+            <Card className='card' bordered={false}>
+              {renderViewByTabKey}
+            </Card>
+          }
+        </div>
+        <div className='card-wrapper mt-px-40'>
+          <h3 className='resource-title'>微博热搜 : </h3>
+          {
+            <Card className='card' bordered={false}>
+              <Spin spinning={isLoad} className='loading-spin'>
+                {renderViewByHot}
+              </Spin>
+            </Card>
+          }
+        </div>
+        <div className='fix-group'>
+          <Switch
+            checkedChildren='白底'
+            unCheckedChildren='透明'
+            checked={ghostClose}
+            onChange={toggleGhost}
+          />
+          {/* <Tooltip title="切换封面">*/}
+          {/*  <Button type={ghostClose ? 'primary' : 'ghost'} size="small" shape="round" icon={<PictureOutlined />}*/}
+          {/*          style={{ marginLeft: 8 }}*/}
+          {/*          onClick={() => setDrawerVisible(true)} />*/}
+          {/* </Tooltip>*/}
+          <Tooltip title='项目详情'>
+            <Button type={ghostClose ? 'primary' : 'ghost'} size='small' shape='round' icon={<GithubOutlined />}
+              style={{ marginLeft: 8 }}
+              onClick={() => window.open('https://github.com/sunupdong')}
+            />
+          </Tooltip>
+        </div>
       </div>
     </main>
   )
