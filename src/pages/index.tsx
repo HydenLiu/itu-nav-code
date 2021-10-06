@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Avatar, Card, Input, message, Button, Tooltip, Switch, Spin } from 'antd'
-import { SearchOutlined, GithubOutlined } from '@ant-design/icons'
+import { Avatar, Card, Input, message, Button, Tooltip, Switch, Spin, Tabs, Row, Col } from 'antd'
+import { SearchOutlined, GithubOutlined, BankOutlined, RedoOutlined, WeiboOutlined } from '@ant-design/icons'
 import baidu from '@/assets/baidu.png'
 import google from '@/assets/google.png'
 import resourceData from '@/utils/resourceData'
@@ -10,18 +10,30 @@ import NavBar from '@/components/NavBar'
 import './index.scss'
 
 const { Search } = Input
+const { TabPane } = Tabs
 
 const localStorage = window.localStorage
 
 export default () => {
   const [isBaidu, setIsBaidu] = useState(true)
+  const [count, setCount] = useState(1)
   const [hotData, setHotData] = useState([])
+  const [hotAllData, setHotAllData] = useState([])
   const [isLoad, setIsLoad] = useState(false)
 
+
+
+  // 获取微博热搜
   const getWebHotList = useCallback(() => {
     setIsLoad(true)
-    Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(res => {
-      setHotData(res.data)
+    Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(({ data }) => {
+      const resList = data.map((item, i: number) => {
+        const obj = item
+        obj.id = i + 1
+        return obj
+      })
+      setHotData(() => resList.slice(0, 10))
+      setHotAllData(resList)
     }).finally(() => {
       setIsLoad(false)
     })
@@ -30,6 +42,14 @@ export default () => {
   useEffect(() => {
     getWebHotList()
   }, [])
+
+  // 刷新
+  const refresh = useCallback(() => {
+    if (count >= 4) setCount(0)
+    else setCount(count + 1)
+    const hots = hotAllData.slice(count * 10, count * 10 + 10)
+    setHotData(hots)
+  }, [hotAllData, count])
 
   // 透明模式
   const currentGhostClose = localStorage.getItem('isGhost') ? JSON.parse(localStorage.getItem('isGhost')) : false
@@ -48,7 +68,8 @@ export default () => {
     }
   }
 
-  const toggleGhost = (checked: boolean) => {
+  const toggleGhost = (checked: boolean, e: MouseEvent) => {
+    e.preventDefault()
     localStorage.setItem('isGhost', JSON.stringify(checked))
     setGhostClose(checked)
   }
@@ -62,10 +83,10 @@ export default () => {
     </a>
   )
 
-  const renderViewByHot = hotData.map((item, index) =>
-    <a href={item.url} target='_blank' key={index} rel='noreferrer'>
+  const renderViewByHot = hotData.map(item =>
+    <a href={item.url} target='_blank' key={item.id} rel='noreferrer'>
       <Card.Grid className='hot-list-item'>
-        <div className='resource-name'>{index + 1}. {item.hot_word}</div>
+        <div className='resource-name'>{item.id}. {item.hot_word}</div>
         <div>{item.hot_word_num}</div>
       </Card.Grid>
     </a>
@@ -76,7 +97,7 @@ export default () => {
       <NavBar />
       <div className='next-box'>
         <div className='bg' />
-        <div style={{ textAlign: 'center', margin: '104px 0 34px' }}>
+        <div style={{ textAlign: 'center', margin: '120px 0 34px' }}>
           <img src={isBaidu ? baidu : google} alt={isBaidu ? '百度' : '谷歌'} className='search-logo'
             onClick={() => setIsBaidu(!isBaidu)}
           />
@@ -89,23 +110,47 @@ export default () => {
             onSearch={doSearch}
           />
         </div>
-        <div className='card-wrapper'>
-          {
-            <Card className='card' bordered={false}>
-              {renderViewByTabKey}
-            </Card>
-          }
-        </div>
-        <div className='card-wrapper mt-px-40'>
-          <h3 className='resource-title'>微博热搜 : </h3>
-          {
-            <Card className='card' bordered={false}>
-              <Spin spinning={isLoad} className='loading-spin'>
-                {renderViewByHot}
-              </Spin>
-            </Card>
-          }
-        </div>
+        <Row justify='space-between'>
+          <Col span={15}>
+            <Tabs defaultActiveKey='1'>
+              <TabPane
+                key='1'
+                tab={
+                  <h3>
+                    <BankOutlined />
+                    社区
+                  </h3>
+                }
+              >
+                <div className='card-wrapper'>
+                  {
+                    <Card className='card' bordered={false}>
+                      {renderViewByTabKey}
+                    </Card>
+                  }
+                </div>
+              </TabPane>
+            </Tabs>
+          </Col>
+          <Col span={8}>
+            <div className='card-wrapper'>
+              <div className='resource-title jc-between ai-center'>
+                <h3 className='cursor-pointer' onClick={() => window.open('https://weibo.com/')}>
+                  <WeiboOutlined /> 微博热搜 :
+                </h3>
+                <span className='cursor-pointer' onClick={refresh}>换一批 <RedoOutlined /></span>
+              </div>
+              {
+                <Card className='card' bordered={false}>
+                  <Spin spinning={isLoad} className='loading-spin'>
+                    {renderViewByHot}
+                  </Spin>
+                </Card>
+              }
+            </div>
+          </Col>
+        </Row>
+
         <div className='fix-group'>
           <Switch
             checkedChildren='白底'
@@ -121,7 +166,10 @@ export default () => {
           <Tooltip title='项目详情'>
             <Button type={ghostClose ? 'primary' : 'ghost'} size='small' shape='round' icon={<GithubOutlined />}
               style={{ marginLeft: 8 }}
-              onClick={() => window.open('https://github.com/sunupdong')}
+              onClick={(e) => {
+                e.preventDefault()
+                window.open('https://github.com/sunupdong')
+              }}
             />
           </Tooltip>
         </div>
