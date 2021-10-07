@@ -23,6 +23,11 @@
   }
 
   .search {
+    .ant-input {
+      background: none !important;
+      color: #fff;
+    }
+
     .ant-input-search-button {
       color: white !important;
       border-color: #f5f5f5;
@@ -31,24 +36,19 @@
     .ant-input-search-button:hover {
       border-color: #40a9ff;
     }
+
+    .ant-input-affix-wrapper {
+      background: none !important;
+      border-color: #f5f5f5 !important;
+    }
+
+    .ant-input-affix-wrapper:hover {
+      border-color: #40a9ff !important;
+    }
   }
 
   .ant-btn-ghost:hover, .ghost .ant-btn-ghost:focus {
     color: #40a9ff !important;
-  }
-
-  .ant-input-affix-wrapper {
-    background: none !important;
-    border-color: #f5f5f5 !important;
-  }
-
-  .ant-input-affix-wrapper:hover {
-    border-color: #40a9ff !important;
-  }
-
-  .ant-input {
-    background: none !important;
-    color: #fff;
   }
 
   .ant-card-grid {

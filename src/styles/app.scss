@@ -58,9 +58,13 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 60px;
 }
 
+.font-12{
+  font-size: 12px;
+}
+
 $colors: (
   'danger':#F05D6F,
-  'whilt':#FFFFFF,
+  'white':#FFFFFF,
   'blue': #0091FF,
   'faild': #c1c1c1,
   'success': #67C23A

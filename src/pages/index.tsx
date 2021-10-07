@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Avatar, Card, Input, message, Button, Tooltip, Switch, Spin, Tabs, Row, Col } from 'antd'
-import { SearchOutlined, GithubOutlined, BankOutlined, RedoOutlined, WeiboOutlined } from '@ant-design/icons'
+import { Card, Input, message, Button, Tooltip, Switch, Spin, Row, Col } from 'antd'
+import { SearchOutlined, GithubOutlined, RedoOutlined, WeiboOutlined } from '@ant-design/icons'
 import baidu from '@/assets/baidu.png'
 import google from '@/assets/google.png'
-import resourceData from '@/utils/resourceData'
 import Request from '@/utils/request'
 import '@/styles/ghost.scss'
 import NavBar from '@/components/NavBar'
+import MainLeft from '@/components/MianLeft'
 import './index.scss'
 
 const { Search } = Input
-const { TabPane } = Tabs
 
 const localStorage = window.localStorage
 
@@ -20,8 +19,6 @@ export default () => {
   const [hotData, setHotData] = useState([])
   const [hotAllData, setHotAllData] = useState([])
   const [isLoad, setIsLoad] = useState(false)
-
-
 
   // 获取微博热搜
   const getWebHotList = useCallback(() => {
@@ -74,15 +71,6 @@ export default () => {
     setGhostClose(checked)
   }
 
-  const renderViewByTabKey = resourceData.map((resource, index) =>
-    <a href={resource.link} target='_blank' key={index} rel='noreferrer'>
-      <Card.Grid className='gird-style'>
-        <Avatar shape='square' src={resource.icon} />
-        <div className='resource-name'>{resource.name}</div>
-      </Card.Grid>
-    </a>
-  )
-
   const renderViewByHot = hotData.map(item =>
     <a href={item.url} target='_blank' key={item.id} rel='noreferrer'>
       <Card.Grid className='hot-list-item'>
@@ -112,25 +100,7 @@ export default () => {
         </div>
         <Row justify='space-between'>
           <Col span={15}>
-            <Tabs defaultActiveKey='1'>
-              <TabPane
-                key='1'
-                tab={
-                  <h3>
-                    <BankOutlined />
-                    社区
-                  </h3>
-                }
-              >
-                <div className='card-wrapper'>
-                  {
-                    <Card className='card' bordered={false}>
-                      {renderViewByTabKey}
-                    </Card>
-                  }
-                </div>
-              </TabPane>
-            </Tabs>
+            <MainLeft />
           </Col>
           <Col span={8}>
             <div className='card-wrapper'>
