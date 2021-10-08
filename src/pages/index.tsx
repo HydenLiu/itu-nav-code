@@ -26,6 +26,9 @@ export default () => {
     Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(({ data }) => {
       const resList = data.map((item, i: number) => {
         const obj = item
+        if( i === 0) obj.color = '#ff2a2a'
+        else if( i === 1) obj.color = '#f90'
+        else if( i === 2) obj.color = '#fc0'
         obj.id = i + 1
         return obj
       })
@@ -74,7 +77,12 @@ export default () => {
   const renderViewByHot = hotData.map(item =>
     <a href={item.url} target='_blank' key={item.id} rel='noreferrer'>
       <Card.Grid className='hot-list-item'>
-        <div className='resource-name'>{item.id}. {item.hot_word}</div>
+        <div className='resource-name jc-start ai-center hot-list-content'>
+          <span style={{background: item.color}} className={item.color ? ' text-white' : ''}>
+            {item.id}
+          </span>
+          <p>{item.hot_word}</p>
+        </div>
         <div>{item.hot_word_num}</div>
       </Card.Grid>
     </a>

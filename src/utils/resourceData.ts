@@ -161,5 +161,29 @@ export const onlineData = [
     link: 'https://www.aigei.com/',
     name: '爱给',
     presentation: '音效配乐素材'
+  },
+  {
+    icon: 'https://wallhaven.cc/favicon.ico',
+    link: 'https://wallhaven.cc/',
+    name: 'Awesome Wallhaven',
+    presentation: '热门壁纸'
+  },
+  {
+    icon: 'https://static.alphacoders.com/icons/wallpaper/favicon-32x32.png',
+    link: 'https://wall.alphacoders.com/?lang=Chinese',
+    name: 'Wallpaper Abyss',
+    presentation: '高清壁纸, 桌面背景'
+  },
+  {
+    icon: 'http://wallls.com/favicon.ico',
+    link: 'http://wallls.com/',
+    name: 'Wallls.com',
+    presentation: 'Most inspiring and awesome desktop wallpapers（最鼓舞人心和令人敬畏的桌面壁纸）'
+  },
+  {
+    icon: 'https://i.postimg.cc/FKhNHhXk/a8xub-qx0pz.png',
+    link: 'https://pic.netbian.com/',
+    name: '彼岸图网',
+    presentation: '4K壁纸_4K电脑壁纸_4K高清壁纸下载_4K,5K,6K,7K,8K壁纸图片素材'
   }
 ]
