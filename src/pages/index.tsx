@@ -13,6 +13,13 @@ const { Search } = Input
 
 const localStorage = window.localStorage
 
+interface iWeiboHot {
+  id: number,
+  color?: string,
+  hot_word: string,
+  hot_word_num: string
+}
+
 export default () => {
   const [isBaidu, setIsBaidu] = useState(true)
   const [count, setCount] = useState(1)
@@ -24,11 +31,11 @@ export default () => {
   const getWebHotList = useCallback(() => {
     setIsLoad(true)
     Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(({ data }) => {
-      const resList = data.map((item, i: number) => {
+      const resList = data.map((item: iWeiboHot, i: number) => {
         const obj = item
-        if( i === 0) obj.color = '#ff2a2a'
-        else if( i === 1) obj.color = '#f90'
-        else if( i === 2) obj.color = '#fc0'
+        if (i === 0) obj.color = '#ff2a2a'
+        else if (i === 1) obj.color = '#f90'
+        else if (i === 2) obj.color = '#fc0'
         obj.id = i + 1
         return obj
       })
@@ -63,7 +70,6 @@ export default () => {
     if (isBaidu) {
       window.open(`https://www.baidu.com/s?wd=${value}`)
     } else {
-      console.log(111)
       window.open(`https://www.google.com/search?q=${value}`)
     }
   }
@@ -78,7 +84,7 @@ export default () => {
     <a href={item.url} target='_blank' key={item.id} rel='noreferrer'>
       <Card.Grid className='hot-list-item'>
         <div className='resource-name jc-start ai-center hot-list-content'>
-          <span style={{background: item.color}} className={item.color ? ' text-white' : ''}>
+          <span style={{ background: item.color }} className={item.color ? ' text-white' : ''}>
             {item.id}
           </span>
           <p>{item.hot_word}</p>
@@ -92,7 +98,7 @@ export default () => {
     <main className={`main pb-px-60 ${ghostClose ? '' : 'ghost'}`}>
       <NavBar />
       <div className='next-box'>
-        <div className='bg' />
+        <div className='bg' style={{ backgroundImage: "url('https://itudb.oss-cn-hangzhou.aliyuncs.com/win_bg2.jpg')" }} />
         <div style={{ textAlign: 'center', margin: '120px 0 34px' }}>
           <img src={isBaidu ? baidu : google} alt={isBaidu ? '百度' : '谷歌'} className='search-logo'
             onClick={() => setIsBaidu(!isBaidu)}

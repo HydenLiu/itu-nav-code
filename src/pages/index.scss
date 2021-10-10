@@ -140,7 +140,8 @@ div.gird-style {
   border: 0;
   overflow: hidden;
   z-index: -100;
-  background: url('../assets/win_bg2.jpg') no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 
@@ -169,9 +170,5 @@ div.gird-style {
 @media screen and (max-width: 480px) {
   .resource-name {
     display: none;
-  }
-
-  .bg {
-    background-image: url("../assets/phone_bg.jpg");
   }
 }
