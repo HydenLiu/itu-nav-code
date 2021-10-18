@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Card, Input, message, Button, Tooltip, Switch, Spin, Row, Col } from 'antd'
-import { SearchOutlined, GithubOutlined, RedoOutlined, WeiboOutlined } from '@ant-design/icons'
+import { Card, Input, message, Button, Tooltip, Switch, Spin, Row, Col, Drawer } from 'antd'
+import { SearchOutlined, GithubOutlined, RedoOutlined, WeiboOutlined, PictureOutlined } from '@ant-design/icons'
 import baidu from '@/assets/baidu.png'
 import google from '@/assets/google.png'
 import Request from '@/utils/request'
 import '@/styles/ghost.scss'
 import NavBar from '@/components/NavBar'
 import MainLeft from '@/components/MianLeft'
+import ImageDrawer from '@/components/ImageDrawer'
 import './index.scss'
 
 const { Search } = Input
@@ -26,6 +27,7 @@ export default () => {
   const [hotData, setHotData] = useState([])
   const [hotAllData, setHotAllData] = useState([])
   const [isLoad, setIsLoad] = useState(false)
+  const [isImgShow, setIsImgShow] = useState(false) // 图片弹窗
 
   // 获取微博热搜
   const getWebHotList = useCallback(() => {
@@ -142,11 +144,11 @@ export default () => {
             checked={ghostClose}
             onChange={toggleGhost}
           />
-          {/* <Tooltip title="切换封面">*/}
-          {/*  <Button type={ghostClose ? 'primary' : 'ghost'} size="small" shape="round" icon={<PictureOutlined />}*/}
-          {/*          style={{ marginLeft: 8 }}*/}
-          {/*          onClick={() => setDrawerVisible(true)} />*/}
-          {/* </Tooltip>*/}
+           <Tooltip title="切换封面">
+            <Button type={ghostClose ? 'primary' : 'ghost'} size="small" shape="round" icon={<PictureOutlined />}
+                    style={{ marginLeft: 8 }}
+                    onClick={() => setIsImgShow(true)} />
+           </Tooltip>
           <Tooltip title='项目详情'>
             <Button type={ghostClose ? 'primary' : 'ghost'} size='small' shape='round' icon={<GithubOutlined />}
               style={{ marginLeft: 8 }}
@@ -158,6 +160,15 @@ export default () => {
           </Tooltip>
         </div>
       </div>
+      <Drawer
+        title="背景图片"
+        placement="right"
+        visible={isImgShow}
+        onClose={()=>setIsImgShow(false)}
+        width={600}
+      >
+        <ImageDrawer />
+      </Drawer>
     </main>
   )
 }
