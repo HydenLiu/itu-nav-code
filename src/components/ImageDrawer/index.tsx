@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { Image } from 'antd'
-import {setLocal} from '@/utils/auth'
+import { setLocal } from '@/utils/auth'
 import './index.scss'
 
 interface iProps {

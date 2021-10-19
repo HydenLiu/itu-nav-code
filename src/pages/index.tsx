@@ -5,6 +5,7 @@ import { SearchOutlined, GithubOutlined, RedoOutlined, WeiboOutlined, PictureOut
 import baidu from '@/assets/baidu.png'
 import google from '@/assets/google.png'
 import Request from '@/utils/request'
+import { setLocal, getLocal } from '@/utils/auth'
 import '@/styles/ghost.scss'
 import NavBar from '@/components/NavBar'
 import MainLeft from '@/components/MianLeft'
@@ -12,8 +13,6 @@ import ImageDrawer from '@/components/ImageDrawer'
 import './index.scss'
 
 const {Search} = Input
-
-const localStorage = window.localStorage
 
 interface iWeiboHot {
   id: number,
@@ -23,7 +22,7 @@ interface iWeiboHot {
 }
 
 export default () => {
-  const bgImg = localStorage.getItem('bg') || 'https://itudb.oss-cn-hangzhou.aliyuncs.com/background-images/win_bg0.jpg'
+  const bgImg = getLocal('bg') || 'https://itudb.oss-cn-hangzhou.aliyuncs.com/background-images/win_bg0.jpg'
 
   const [isBaidu, setIsBaidu] = useState(true)
   const [count, setCount] = useState(1)
@@ -65,7 +64,7 @@ export default () => {
   }, [hotAllData, count])
 
   // 透明模式
-  const currentGhostClose = localStorage.getItem('isGhost') ? JSON.parse(localStorage.getItem('isGhost')) : false
+  const currentGhostClose = getLocal('isGhost') || false
   const [ghostClose, setGhostClose] = useState(currentGhostClose)
 
   const doSearch = (value: string) => {
@@ -82,7 +81,7 @@ export default () => {
 
   const toggleGhost = (checked: boolean, e: MouseEvent) => {
     e.preventDefault()
-    localStorage.setItem('isGhost', JSON.stringify(checked))
+    setLocal('isGhost', checked)
     setGhostClose(checked)
   }
 
