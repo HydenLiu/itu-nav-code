@@ -1,12 +1,38 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Image } from 'antd'
-// import './index.scss'
+import {setLocal} from '@/utils/auth'
+import './index.scss'
 
-const ImageDrawer = () => {
+interface iProps {
+  chooseImg: (v: string) => void
+}
+
+const ImageDrawer = (props: iProps) => {
+  const {chooseImg} = props
+
+  const emptyList = Array.from({length: 8}, (_, k) => k)
+
+  const selectImg = useCallback((img: string) => {
+    setLocal('bg', img)
+    chooseImg(img)
+  }, [chooseImg])
 
   return (
-    <section>
-      <Image width={400} src='https://itudb.oss-cn-hangzhou.aliyuncs.com/win_bg2.jpg' preview={false}/>
+    <section className="image-wrap">
+      {
+        emptyList.map(num => {
+          const img = `https://itudb.oss-cn-hangzhou.aliyuncs.com/background-images/win_bg${num}.jpg`
+          return (
+            <Image
+              key={num}
+              width={200}
+              onClick={() => selectImg(img)}
+              src={img}
+              preview={false}
+            />
+          )
+        })
+      }
     </section>
   )
 }

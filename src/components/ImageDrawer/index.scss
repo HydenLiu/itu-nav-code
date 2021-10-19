@@ -1,0 +1,20 @@
+.image-wrap {
+  min-height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-evenly;
+  flex-wrap: wrap;
+
+  & > div {
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    &:hover{
+      border-color: #1890ff;
+    }
+  }
+}

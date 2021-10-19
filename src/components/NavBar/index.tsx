@@ -34,7 +34,7 @@ const NavBar = () => {
       <div className='next-box jc-between ai-center'>
         <div className='jc-start ai-center'>
           <Image width={24} src={require(`@/assets/logo${logo}.png`)} preview={false}/>
-          <img src={require(`@/assets/logo-title${logoTile}.png`)} className='ml-px-10 logo-title' alt='艾兔网' />
+          {currentGhostClose && <img src={require(`@/assets/logo-title${logoTile}.png`)} className='ml-px-10 logo-title' alt='艾兔网' />}
         </div>
         <div className='time'>
           {theDate}
