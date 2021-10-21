@@ -80,6 +80,11 @@ export const CommunityData = [
     icon: 'bilibili.png',
     link: 'https://www.bilibili.com/',
     name: 'Bilibili'
+  },
+  {
+    icon: 'migu.ico',
+    link: 'https://music.migu.cn/v3',
+    name: '咪咕音乐'
   }
 ]
 

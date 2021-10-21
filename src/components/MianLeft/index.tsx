@@ -2,11 +2,13 @@ import React from 'react'
 import { Avatar, Card, Tabs, Tooltip } from 'antd'
 import { BankOutlined, ToolOutlined } from '@ant-design/icons'
 import { CommunityData, onlineData } from '@/utils/resourceData'
+import { getLocal } from '@/utils/auth'
 
 const { TabPane } = Tabs
 
 const MainLeft = () => {
   const oss = 'https://itudb.oss-cn-hangzhou.aliyuncs.com/'
+  const itudb_theme = getLocal('itudb_theme') ? getLocal('itudb_theme') : '#f09393'
 
   // 社区
   const renderViewByTabCommunityData = CommunityData.map((resource, index) =>
@@ -22,7 +24,7 @@ const MainLeft = () => {
   const renderViewByTabOnlineData = onlineData.map((resource, index) =>
     <a href={resource.link} target='_blank' key={index} rel='noreferrer'>
       <Card.Grid className='gird-style'>
-        <Tooltip placement='bottom' title={resource.presentation} color='rgb(24, 144, 255, 0.8)'>
+        <Tooltip placement='bottom' title={resource.presentation} color={itudb_theme}>
           <Avatar shape='square' src={oss + 'onlineTools/' + resource.icon} />
         </Tooltip>
         <div className='resource-name'>{resource.name}</div>

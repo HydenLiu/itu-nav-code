@@ -23,6 +23,11 @@ h1, h2, h3, h4, h5, h6 {
   src: url("../assets/fonts/digital-7-mono.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "title-font";
+  src: url("../assets/fonts/title-font.ttf") format("truetype");
+}
+
 .center-container {
   width: 100vw;
   height: 100vh;

@@ -1,4 +1,4 @@
-.nav-wrapper{
+.nav-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,20 +7,21 @@
   height: 50px;
   background: #fff;
 
-  .logo-title{
-    height: 20px;
+  .nav-title {
+    font-family: 'title-font';
+    color: #555;
   }
 
-  .time{
+  .time {
     font-family: Digital-7 Mono;
     font-size: 14px;
-    letter-spacing:1.1px
+    letter-spacing: 1.1px
   }
 }
 
 
 @media screen and (max-width: 480px) {
- .time{
-   display: none;
- }
+  .time {
+    display: none;
+  }
 }

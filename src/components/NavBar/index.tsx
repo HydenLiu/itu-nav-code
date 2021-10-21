@@ -8,7 +8,6 @@ const localStorage = window.localStorage
 const NavBar = () => {
   const currentGhostClose = localStorage.getItem('isGhost') ? JSON.parse(localStorage.getItem('isGhost')) : false
   const [theDate, setTheDate] = useState('')
-  const [logoTile, setLogoTitle] = useState('')
   const [logo, setLogo] = useState('')
 
   useEffect(() => {
@@ -24,7 +23,6 @@ const NavBar = () => {
 
   useEffect(() => {
     const logoT = currentGhostClose ? '' : '-black'
-    setLogoTitle(logoT)
     setLogo(logoT)
   }, [currentGhostClose])
 
@@ -34,7 +32,7 @@ const NavBar = () => {
       <div className='next-box jc-between ai-center'>
         <div className='jc-start ai-center'>
           <Image width={24} src={require(`@/assets/logo${logo}.png`)} preview={false}/>
-          {currentGhostClose && <img src={require(`@/assets/logo-title${logoTile}.png`)} className='ml-px-10 logo-title' alt='艾兔网' />}
+          <h3 className='ml-px-10 nav-title'>艾兔网</h3>
         </div>
         <div className='time'> {theDate} </div>
       </div>

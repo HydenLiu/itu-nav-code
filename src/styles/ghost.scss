@@ -8,6 +8,10 @@
     background: $primary;
     // background: #cf6c6c;
     color: #fff;
+
+    h3.nav-title {
+      color: #fff;
+    }
   }
 
   .card {
@@ -66,11 +70,14 @@
     color: $primary !important;
   }
 
+  .ant-card-body{
+    background: $primary-virtual !important;
+  }
+
+
   .ant-card-grid {
     box-shadow: none !important;
-    background: $primary-virtual !important;
-    // background: rgba(0, 0, 0, 0.5) !important;
-    // background: #a33d3d80 !important;
+    // background: $primary-virtual !important;
   }
 
   .ant-card-grid:hover {

@@ -176,7 +176,7 @@ export default () => {
             </Tooltip>
             {displayColorPicker && <div>
               <div className='color-cover' onClick={() => setDisplayColorPicker(false)} />
-              <SketchPicker className='color-group' disableAlpha color={color} onChange={handleChangeColor} />
+              <SketchPicker className='color-group' width='220px' disableAlpha color={color} onChange={handleChangeColor} />
             </div>}
           </div>
           <Switch
