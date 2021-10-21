@@ -8,9 +8,9 @@ interface iProps {
 }
 
 const ImageDrawer = (props: iProps) => {
-  const {chooseImg} = props
+  const { chooseImg } = props
 
-  const emptyList = Array.from({length: 8}, (_, k) => k)
+  const emptyList = Array.from({ length: 8 }, (_, k) => k + 1)
 
   const selectImg = useCallback((img: string) => {
     setLocal('bg', img)
@@ -18,7 +18,7 @@ const ImageDrawer = (props: iProps) => {
   }, [chooseImg])
 
   return (
-    <section className="image-wrap">
+    <section className='image-wrap'>
       {
         emptyList.map(num => {
           const img = `https://itudb.oss-cn-hangzhou.aliyuncs.com/background-images/win_bg${num}.jpg`

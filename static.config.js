@@ -13,7 +13,7 @@ export default {
       <Head>
         <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title>艾兔db - 程序员导航(今天是个好日子)</title>
+        <title>艾兔db - 程序员导航(要天天开心哦～~)</title>
         <meta name='description' content='艾兔,艾兔网,程序员导航,导航主页,编程导航,导航网站' />
         <meta name='keywords' content='艾兔,艾兔网,艾兔db,程序员导航,主页,编程,程序员,导航,资源,编程导航' />
         <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />

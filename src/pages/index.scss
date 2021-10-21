@@ -1,6 +1,26 @@
-/*主页样式*/
-.main{
+@import '../styles/variable.scss';
 
+/*主页样式*/
+button.ant-btn-primary {
+  border-color: $primary;
+  background: $primary;
+
+  &:hover {
+    border-color: $primary-virtual;
+    background: $primary-virtual;
+  }
+}
+
+.ant-input-search {
+
+  input.ant-input:focus,
+  input.ant-input:hover {
+    border-color: $primary;
+  }
+}
+
+button.ant-switch-checked{
+  background-color:  $primary;
 }
 
 .card-wrapper {
@@ -31,7 +51,7 @@
     .resource-name {
       margin: 0;
 
-      span{
+      span {
         width: 30px;
         height: 20px;
         line-height: 20px;
@@ -41,19 +61,24 @@
         color: #000;
         margin-right: 10px;
       }
-      p{
+
+      p {
         letter-spacing: 1.1px;
       }
     }
   }
 
-  .ant-spin-nested-loading{
+  .ant-spin-nested-loading {
     min-height: 50px;
   }
 }
 
 .ant-card-grid:hover .resource-name {
-  color: #1890ff !important;
+  color: $primary !important;
+}
+
+.ant-tabs-ink-bar {
+  background: $primary !important;
 }
 
 div.gird-style {
@@ -64,11 +89,15 @@ div.gird-style {
 }
 
 .resource-title {
-  color: #fff ;
+  color: #fff;
   margin: 19px 0;
 
-  span:hover{
-    color: #1890ff;
+  span.anticon {
+    color: $primary;
+  }
+
+  span:hover {
+    color: $primary;
   }
 }
 
@@ -105,6 +134,7 @@ div.gird-style {
   width: 640px;
   max-width: 90%;
   margin: 0 auto 70px;
+  border-radius: 24px;
 }
 
 .search .ant-input {
@@ -150,6 +180,27 @@ div.gird-style {
   bottom: 16px;
   right: 16px;
   z-index: 9;
+  display: flex;
+  justify-content: flex-end;
+
+  .color-po-a {
+    position: relative;
+
+    .color-cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .color-group {
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      z-index: 9;
+    }
+  }
 }
 
 

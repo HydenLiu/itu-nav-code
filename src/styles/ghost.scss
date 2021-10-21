@@ -1,16 +1,19 @@
+@import './variable.scss';
+
 /*透明主题*/
 .ghost {
+
   // 导航部分
-  .nav-wrapper{
-    //background: #000;
-    background: #cf6c6c;
+  .nav-wrapper {
+    background: $primary;
+    // background: #cf6c6c;
     color: #fff;
   }
 
   .card {
     background: none !important;
 
-    .hot-list-item{
+    .hot-list-item {
       color: #a9becd;
     }
   }
@@ -27,6 +30,11 @@
     .ant-input {
       background: none !important;
       color: #fff;
+
+      &:focus,
+      &:hover {
+        border-color: $primary !important;
+      }
     }
 
     .ant-input-search-button {
@@ -35,7 +43,7 @@
     }
 
     .ant-input-search-button:hover {
-      border-color: #40a9ff;
+      border-color: $primary;
     }
 
     .ant-input-affix-wrapper {
@@ -44,26 +52,36 @@
     }
 
     .ant-input-affix-wrapper:hover {
-      border-color: #40a9ff !important;
+      border-color: $primary !important;
+    }
+
+    .ant-input:focus+.ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary),
+    .ant-input:hover+.ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary) {
+      border-left-color: $primary !important;
     }
   }
 
-  .ant-btn-ghost:hover, .ghost .ant-btn-ghost:focus {
-    color: #40a9ff !important;
+  .ant-btn-ghost:hover,
+  .ghost .ant-btn-ghost:focus {
+    color: $primary !important;
   }
 
   .ant-card-grid {
     box-shadow: none !important;
-    //background: rgba(0, 0, 0, 0.5) !important;
-    background: #a33d3d80 !important;
+    background: $primary-virtual !important;
+    // background: rgba(0, 0, 0, 0.5) !important;
+    // background: #a33d3d80 !important;
   }
 
   .ant-card-grid:hover {
     box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09) !important;
+
+    .resource-name {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
   }
 
   .ant-btn-ghost {
     color: #fff;
   }
 }
-
