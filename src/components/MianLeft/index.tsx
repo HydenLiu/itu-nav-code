@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Card, Tabs, Tooltip } from 'antd'
-import { BankOutlined, ToolOutlined } from '@ant-design/icons'
+import { BankOutlined, ToolOutlined, ClusterOutlined, CameraOutlined, ProfileOutlined, BulbOutlined } from '@ant-design/icons'
 import { CommunityData, onlineData } from '@/utils/resourceData'
 import { getLocal } from '@/utils/auth'
 
@@ -55,6 +55,54 @@ const MainLeft = () => {
           {
             <Card className='card' bordered={false}>
               {renderViewByTabOnlineData}
+            </Card>
+          }
+        </div>
+      </TabPane>
+      <TabPane
+        key='3'
+        tab={<h3> <ClusterOutlined /> 框架 </h3>}
+      >
+        <div className='card-wrapper'>
+          {
+            <Card className='card' bordered={false}>
+              {/* {renderViewByTabOnlineData} */}
+            </Card>
+          }
+        </div>
+      </TabPane>
+      <TabPane
+        key='4'
+        tab={<h3> <CameraOutlined /> UI框架 </h3>}
+      >
+        <div className='card-wrapper'>
+          {
+            <Card className='card' bordered={false}>
+              {/* {renderViewByTabOnlineData} */}
+            </Card>
+          }
+        </div>
+      </TabPane>
+      <TabPane
+        key='5'
+        tab={<h3> <ProfileOutlined /> 类库 </h3>}
+      >
+        <div className='card-wrapper'>
+          {
+            <Card className='card' bordered={false}>
+              {/* {renderViewByTabOnlineData} */}
+            </Card>
+          }
+        </div>
+      </TabPane>
+      <TabPane
+        key='6'
+        tab={<h3> <BulbOutlined /> 图标 </h3>}
+      >
+        <div className='card-wrapper'>
+          {
+            <Card className='card' bordered={false}>
+              {/* {renderViewByTabOnlineData} */}
             </Card>
           }
         </div>
