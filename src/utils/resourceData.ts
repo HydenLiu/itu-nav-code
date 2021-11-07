@@ -1,3 +1,4 @@
+// 社区
 export const CommunityData = [
   {
     icon: 'github.png',
@@ -88,6 +89,7 @@ export const CommunityData = [
   }
 ]
 
+// 在线工具
 export const onlineData = [
   {
     icon: 'tool.lu.ico',
@@ -184,5 +186,194 @@ export const onlineData = [
     link: 'https://www.aigei.com/',
     name: '爱给',
     presentation: '音效配乐素材'
+  }
+]
+
+// 框架
+export const frameData = [
+  {
+    icon: 'vue.png',
+    link: 'https://cn.vuejs.org/',
+    name: 'vue',
+    presentation: 'vue 2.x官网'
+  },
+  {
+    icon: 'vue.png',
+    link: 'https://v3.cn.vuejs.org/',
+    name: 'vue3',
+    presentation: 'vue 3.x官网'
+  },
+  {
+    icon: 'react.png',
+    link: 'https://zh-hans.reactjs.org/',
+    name: 'react',
+    presentation: 'React 官网'
+  },
+  {
+    icon: 'angular.png',
+    link: 'https://angular.cn/',
+    name: 'angular',
+    presentation: 'angular2 官网'
+  },
+  {
+    icon: 'angularjs.ico',
+    link: 'https://angularjs.org/',
+    name: 'angularJs',
+    presentation: 'angular1 官网'
+  },
+  {
+    icon: 'flutter.png',
+    link: 'https://flutterchina.club/',
+    name: 'flutter',
+    presentation: '谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面'
+  },
+  {
+    icon: 'react.png',
+    link: 'https://reactnative.cn/',
+    name: 'ReactNative',
+    presentation: '使用 React 来创建 Android 和 iOS 的原生应用'
+  },
+  {
+    icon: 'uni-app.png',
+    link: 'https://uniapp.dcloud.io/',
+    name: 'uni-app',
+    presentation: 'vue 开发各种小程序'
+  },
+  {
+    icon: 'electron.ico',
+    link: 'https://www.electronjs.org/',
+    name: 'electron',
+    presentation: '使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序'
+  },
+  {
+    icon: 'nuxt.png',
+    link: 'https://nuxtjs.org/',
+    name: 'Nuxtjs',
+    presentation: 'vue服务端渲染解决方案'
+  },
+  {
+    icon: 'next.ico',
+    link: 'https://www.nextjs.cn/',
+    name: 'Nextjs',
+    presentation: 'React服务端渲染解决方案'
+  }
+]
+
+// UI框架
+export const uiFrameData = [
+  {
+    icon: 'element.svg',
+    link: 'https://element.eleme.cn/#/zh-CN',
+    name: 'Element UI',
+    presentation: 'element ui官网'
+  },
+  {
+    icon: 'element-plus.svg',
+    link: 'https://element-plus.gitee.io/zh-CN/',
+    name: 'Element plus',
+    presentation: 'vue 3.x 的 element ui官网'
+  },
+  {
+    icon: 'antd.png',
+    link: 'https://ant.design/index-cn',
+    name: 'Ant Design',
+    presentation: '企业级后台产品'
+  },
+  {
+    icon: 'antd-vue.svg',
+    link: 'https://www.antdv.com/docs/vue/introduce-cn/',
+    name: 'Ant Design Vue',
+    presentation: 'Ant Design 的 Vue 实现，开发和服务于企业级后台产品'
+  },
+  {
+    icon: 'arco.ico',
+    link: 'https://arco.design/',
+    name: 'arco Design',
+    presentation: '字节跳动的ui框架'
+  },
+  {
+    icon: 'bootstrap.png',
+    link: 'https://v5.bootcss.com/',
+    name: 'Bootstrap',
+    presentation: 'Bootstrap v5'
+  },
+  {
+    icon: 'vant.png',
+    link: 'https://vant-contrib.gitee.io/vant/#/zh-CN/',
+    name: 'Vant',
+    presentation: '轻量、可靠的移动端 Vue 组件库'
+  }
+]
+
+// 插件
+export const classlibData = [
+  {
+    icon: 'echarts.png',
+    link: 'https://echarts.apache.org/zh/index.html',
+    name: 'Echarts',
+    presentation: '一个基于 JavaScript 的开源可视化图表库'
+  },
+  {
+    icon: 'makeapie.png',
+    link: 'https://www.makeapie.com/explore.html',
+    name: 'Makeapie',
+    presentation: 'echarts很多示例实现'
+  },
+  {
+    icon: 'datav.ico',
+    link: 'http://datav.jiaminghi.com/',
+    name: 'DataV',
+    presentation: 'Vue 大屏数据展示组件库'
+  },
+  {
+    icon: 'mapbox.png',
+    link: 'https://www.mapbox.cn/products',
+    name: 'mapbox',
+    presentation: '地图、导航制作（主要移动端）'
+  },
+  {
+    icon: 'lodash.ico',
+    link: 'https://www.lodashjs.com/',
+    name: 'Lodash',
+    presentation: '一个一致性、模块化、高性能的 JavaScript 实用工具库'
+  },
+  {
+    icon: 'fullcalendar.png',
+    link: 'https://fullcalendar.io/',
+    name: 'Fullcalendar',
+    presentation: '日历插件，可以拖拽，制作日历规划'
+  }
+]
+
+export default [
+  {
+    title: '社区',
+    key: 'community',
+    icon: 'BankOutlined',
+    list: CommunityData
+  },
+  {
+    title: '在线工具',
+    key: 'onlineTools',
+    icon: 'ToolOutlined',
+    list: onlineData
+  },
+  {
+    title: '框架',
+    key: 'frames',
+    icon: 'ClusterOutlined',
+    list: frameData
+  },
+  {
+    title: 'UI框架',
+    key: 'uiFrames',
+    icon: 'CameraOutlined',
+    list: uiFrameData
+  },
+  {
+    title: '插件',
+    key: 'classlibs',
+    icon: 'ProfileOutlined',
+    list: classlibData
   }
 ]
