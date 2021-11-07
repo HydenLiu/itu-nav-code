@@ -21,7 +21,7 @@ const ImageDrawer = (props: iProps) => {
     <section className='image-wrap'>
       {
         emptyList.map(num => {
-          const img = `https://itudb.oss-cn-hangzhou.aliyuncs.com/background-images/win_bg${num}.jpg`
+          const img = `https://sunupdong.gitee.io/itudb-image/background-images/win_bg${num}.jpg`
           return (
             <Image
               key={num}

@@ -23,7 +23,7 @@ interface iWeiboHot {
 }
 
 export default () => {
-  const bgImg = getLocal('bg') || 'https://itudb.oss-cn-hangzhou.aliyuncs.com/background-images/win_bg1.jpg'
+  const bgImg = getLocal('bg') || 'https://sunupdong.gitee.io/itudb-image/background-images/win_bg1.jpg'
   const itudb_theme = getLocal('itudb_theme') || '#f09393'
 
   const [isBaidu, setIsBaidu] = useState(true)
