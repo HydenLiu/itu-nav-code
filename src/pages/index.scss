@@ -135,6 +135,10 @@ div.gird-style {
   max-width: 90%;
   margin: 0 auto 70px;
   border-radius: 24px;
+
+  .ant-select{
+    width: 100% !important;
+  }
 }
 
 .search .ant-input {
@@ -200,6 +204,12 @@ div.gird-style {
       right: 0;
       z-index: 9;
     }
+  }
+}
+
+.dropdownClassName{
+  .ant-select-item-option-active{
+    background-color: $primary-virtual !important;
   }
 }
 

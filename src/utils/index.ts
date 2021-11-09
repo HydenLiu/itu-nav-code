@@ -41,3 +41,35 @@ export function parseTime(time: string | number | Date, cFormat: string) {
   })
   return time_str
 }
+
+/**
+ *  jsonp
+ *  */
+export function myJsonp(url: string) {
+  const container = document.getElementsByTagName('head')[0]
+  const fnName = `jsonp_${new Date().getTime()}`
+  const script = document.createElement('script')
+  script.src = `${url}&callback=${fnName}`
+  script.type = 'text/javascript'
+  container.appendChild(script)
+
+  return new Promise((resolve, reject) => {
+    // @ts-ignore
+    window[fnName] = function(res) {
+      container.removeChild(script)
+      // @ts-ignore
+      delete window[fnName]
+      resolve(res)
+    }
+
+    script.onerror = function() { // 异常处理，也是很多人漏掉的部分
+      container.removeChild(script)
+      // @ts-ignore
+      delete window[fnName]
+      reject('something error hanppend!')
+    }
+  })
+}
+
+
+

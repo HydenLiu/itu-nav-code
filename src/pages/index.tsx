@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Card, Input, message, Button, Tooltip, Switch, Spin, Row, Col, Drawer } from 'antd'
+import { Card, Input, message, Button, Tooltip, Switch, Spin, Row, Col, Drawer, AutoComplete } from 'antd'
 // import TextLoop from 'react-text-loop'
 import { SketchPicker } from 'react-color'
 import { SearchOutlined, GithubOutlined, RedoOutlined, WeiboOutlined, PictureOutlined } from '@ant-design/icons'
 import baidu from '@/assets/baidu.png'
 import google from '@/assets/google.png'
+import { myJsonp } from '@/utils'
 import Request from '@/utils/request'
 import { setLocal, getLocal } from '@/utils/auth'
 import '@/styles/ghost.scss'
@@ -22,6 +23,11 @@ interface iWeiboHot {
   hot_word_num: string
 }
 
+interface iResule {
+  q: string,
+  sa: string
+}
+
 export default () => {
   const bgImg = getLocal('bg') || 'https://sunupdong.gitee.io/itudb-image/background-images/win_bg1.jpg'
   const itudb_theme = getLocal('itudb_theme') || '#f09393'
@@ -35,6 +41,7 @@ export default () => {
   const [backgroundImage, setBackgroundImage] = useState(bgImg) // 背景图片
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
   const [color, setColor] = useState('#000')
+  const [searchOptions, setSearchOptions] = useState([])
 
   // 获取微博热搜
   const getWebHotList = useCallback(() => {
@@ -78,6 +85,7 @@ export default () => {
   const currentGhostClose = getLocal('isGhost') || false
   const [ghostClose, setGhostClose] = useState(currentGhostClose)
 
+  // 搜索
   const doSearch = (value: string) => {
     if (value.length < 1) {
       message.error('请输入搜索内容')
@@ -88,6 +96,27 @@ export default () => {
     } else {
       window.open(`https://www.google.com/search?q=${value}`)
     }
+  }
+
+  const searchResult = (listData: iResule []) =>
+    listData.map(item => {
+      return {
+        value: item.q,
+        label: (
+          <div key={item.sa}> {item.q} </div>
+        )
+      }
+    })
+
+  const handleSearch = (value: string) => {
+    myJsonp('https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&wd=' + value).then(res => {
+      // @ts-ignore
+      setSearchOptions(res.g ? searchResult(res.g) : [])
+    })
+  }
+
+  const onSelect = (value: string) => {
+    console.log('onSelect', value)
   }
 
   // 切换是否透明
@@ -136,12 +165,22 @@ export default () => {
           />
         </div>
         <div className='search-wrapper'>
-          <Search
-            enterButton={<Button type={ghostClose ? 'primary' : 'ghost'}><SearchOutlined /></Button>}
-            size='large'
-            className='search'
-            onSearch={doSearch}
-          />
+          <AutoComplete
+            backfill
+            dropdownMatchSelectWidth={252}
+            style={{ width: 300 }}
+            options={searchOptions}
+            onSelect={onSelect}
+            onSearch={handleSearch}
+            dropdownClassName='dropdownClassName'
+          >
+            <Search
+              enterButton={<Button type={ghostClose ? 'primary' : 'ghost'}><SearchOutlined /></Button>}
+              size='large'
+              className='search'
+              onSearch={doSearch}
+            />
+          </AutoComplete>
         </div>
         <Row justify='space-between'>
           <Col span={15}>
