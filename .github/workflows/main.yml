@@ -5,10 +5,10 @@ on:
       - master
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # 我们选择使用最新的ubuntu系统
+    runs-on: ubuntu-latest
     steps:
     - name: checkout
-      uses: actions/checkout@master # 将代码拷贝到虚机中
+      uses: actions/checkout@master 
       with: 
         persist-credentials: false
     - name: Install and Build
@@ -19,8 +19,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.5 
       with:
           branch: gh-pages
-          folder: build
-      env:
-        ACCESS_TOKEN: ${{ secrets.TOKEN }}
-        BRANCH: gh-pages 
-        FOLDER: itu-nav-code/itu-nav-code/build 
+          folder: itu-nav-code/build
+          token: ${{ secrets.TOKEN }}
