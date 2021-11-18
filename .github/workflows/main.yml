@@ -23,4 +23,4 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         BRANCH: gh-pages 
-        FOLDER: itu-nav-code/build 
+        FOLDER: itu-nav-code/itu-nav-code/build 
