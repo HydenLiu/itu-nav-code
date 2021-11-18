@@ -21,4 +21,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         BRANCH: gh-pages 
         FOLDER: dist 
-        repository-name: sunupdong/sunupdong.github.io
+        repository-name: sunupdong/sunupdong.github.io/itu-nav-code
