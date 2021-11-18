@@ -18,12 +18,12 @@
   * 主题颜色（自定义颜色、是否透明）
   * 背景选择
 
-### 预览：
-  * 不透明时：
-  ![my_love.jpg](https://sunupdong.gitee.io/itudb-image/common/pic_hd.jpg?raw=true)
+### 🎨 预览：
+  * 半透明时：
+  ![image.jpg](https://sunupdong.gitee.io/itudb-image/common/pic_hd.jpg)
 
-  * 透明：
-  ![my_love.jpg](https://sunupdong.gitee.io/itudb-image/common/pic_hd2.jpg?raw=true)
+  * 不透明时：
+  ![image.jpg](https://sunupdong.gitee.io/itudb-image/common/pic_hd2.jpg)
 
 ### 🔚 END：
   如果本项目对你有帮助，点点发财的小手，点个star呗！！！ 🍻 🍻 🍻
