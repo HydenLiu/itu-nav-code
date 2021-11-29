@@ -115,10 +115,6 @@ export default () => {
     })
   }
 
-  const onSelect = (value: string) => {
-    console.log('onSelect', value)
-  }
-
   // 切换是否透明
   const toggleGhost = (checked: boolean, e: MouseEvent) => {
     e.preventDefault()
@@ -170,7 +166,6 @@ export default () => {
             dropdownMatchSelectWidth={252}
             style={{ width: 300 }}
             options={searchOptions}
-            onSelect={onSelect}
             onSearch={handleSearch}
             dropdownClassName='dropdownClassName'
           >

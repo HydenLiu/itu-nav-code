@@ -326,6 +326,12 @@ export const classlibData = [
     presentation: 'Vue 大屏数据展示组件库'
   },
   {
+    icon: '',
+    link: 'https://recharts.org/zh-CN',
+    name: 'Recharts',
+    presentation: '基于 React 的组合式图表'
+  },
+  {
     icon: 'mapbox.png',
     link: 'https://www.mapbox.cn/products',
     name: 'mapbox',
