@@ -86,6 +86,11 @@ export const CommunityData = [
     icon: 'migu.ico',
     link: 'https://music.migu.cn/v3',
     name: '咪咕音乐'
+  },
+  {
+    icon: 'qqMusic',
+    link: 'https://y.qq.com',
+    name: 'QQ音乐'
   }
 ]
 
