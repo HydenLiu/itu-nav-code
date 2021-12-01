@@ -88,7 +88,7 @@ export const CommunityData = [
     name: '咪咕音乐'
   },
   {
-    icon: 'qqMusic',
+    icon: 'qqMusic.ico',
     link: 'https://y.qq.com',
     name: 'QQ音乐'
   }
