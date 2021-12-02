@@ -20,10 +20,10 @@
 
 ### 🎨 预览：
   * 半透明时：
-  <img src="https://sunupdong.gitee.io/itudb-image/common/pic_hd.jpg" alt="image" style="width: 100%" />
+  <img src="https://img.itudb.cn/common/pic_hd.jpg" alt="image" style="width: 100%" />
 
   * 不透明时：
-  <img src="https://sunupdong.gitee.io/itudb-image/common/pic_hd2.jpg" alt="image" style="width: 100%" />
+  <img src="https://https://img.itudb.cn/common/pic_hd2.jpg" alt="image" style="width: 100%" />
 
 ### 🔚 END：
   如果本项目对你有帮助，点点发财的小手，点个star呗！！！ 🍻 🍻 🍻

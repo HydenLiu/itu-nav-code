@@ -15,7 +15,7 @@ interface IResource {
 }
 
 const MainLeft = () => {
-  const oss = 'https://sunupdong.gitee.io/itudb-image/'
+  const oss = 'https://img.itudb.cn/'
   const itudb_theme = getLocal('itudb_theme') ? getLocal('itudb_theme') : '#f09393'
 
   const IconCustom = (name: string) => {
