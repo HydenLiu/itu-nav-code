@@ -265,7 +265,7 @@ export const frameData = [
   {
     icon: 'tailwindcss.png',
     link: 'https://www.tailwindcss.cn',
-    name: 'Nextjs',
+    name: 'tailwindcss',
     presentation: '一个功能类优先的 CSS 框架，它集成了诸如 flex, pt-4, text-center 和 rotate-90 这样的的类，它们能直接在脚本标记语言中组合起来，构建出任何设计'
   }
 ]
