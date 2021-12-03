@@ -37,7 +37,7 @@ const MainLeft = () => {
                 <a href={resource.link} target='_blank' key={resource.name} rel='noreferrer'>
                   <Card.Grid className='gird-style'>
                     <Tooltip placement='bottom' title={resource.presentation} color={itudb_theme}>
-                      <Avatar shape='square' className={`bg-${resource.background}`} src={oss + main.key + '/' + resource.icon} />
+                      <Avatar shape='square' className={`bg-${resource.background}`} icon={<Icons.PictureOutlined />} src={oss + main.key + '/' + resource.icon} />
                     </Tooltip>
                     <div className='resource-name'>{resource.name}</div>
                   { resource.presentation && <div className='resource-name font-12 text-faild'>{resource.presentation}</div>}
