@@ -167,6 +167,7 @@ export default () => {
             style={{ width: 300 }}
             options={searchOptions}
             onSearch={handleSearch}
+            onSelect={doSearch}
             dropdownClassName='dropdownClassName'
           >
             <Search
