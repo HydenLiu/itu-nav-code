@@ -349,6 +349,12 @@ export const classlibData = [
     presentation: '地图、导航制作（主要移动端）'
   },
   {
+    icon: 'antv.png',
+    link: 'https://antv.gitee.io/zh',
+    name: 'AntV',
+    presentation: '蚂蚁集团全新一代数据可视化解决方案'
+  },
+  {
     icon: 'lodash.ico',
     link: 'https://www.lodashjs.com/',
     name: 'Lodash',
