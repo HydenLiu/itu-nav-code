@@ -70,8 +70,13 @@ export default () => {
   useEffect(() => {
     setBodyColor(itudb_theme)
     setColor(itudb_theme)
-    getWebHotList()
   }, [])
+
+  useEffect(() => {
+    if (count === 1) {
+      getWebHotList()
+    }
+  }, [count])
 
   // 刷新
   const refresh = useCallback(() => {
