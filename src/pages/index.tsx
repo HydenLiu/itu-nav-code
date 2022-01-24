@@ -68,15 +68,10 @@ export default () => {
   }, [])
 
   useEffect(() => {
+    getWebHotList()
     setBodyColor(itudb_theme)
     setColor(itudb_theme)
   }, [])
-
-  useEffect(() => {
-    if (count === 1) {
-      getWebHotList()
-    }
-  }, [count])
 
   // 刷新
   const refresh = useCallback(() => {
@@ -190,8 +185,9 @@ export default () => {
           <Col span={8}>
             <div className='card-wrapper'>
               <div className='resource-title jc-between ai-center'>
-                <h3 className='cursor-pointer' onClick={() => window.open('https://weibo.com/')}>
-                  <WeiboOutlined /> 微博热搜 :
+                <h3 className='cursor-pointer' >
+                  <WeiboOutlined onClick={() => window.open('https://weibo.com/')} />
+                  <i onClick={() => getWebHotList()}>微博热搜 :</i>
                 </h3>
                 <span className='cursor-pointer' onClick={refresh}>换一批 <RedoOutlined /></span>
               </div>
