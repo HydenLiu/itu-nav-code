@@ -45,6 +45,7 @@ export default () => {
 
   // 获取微博热搜
   const getWebHotList = useCallback(() => {
+    setCount(1)
     setIsLoad(true)
     Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(({ data }) => {
       const resList = data.map((item: iWeiboHot, i: number) => {
