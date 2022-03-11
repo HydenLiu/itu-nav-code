@@ -365,6 +365,18 @@ export const classlibData = [
     link: 'https://fullcalendar.io/',
     name: 'Fullcalendar',
     presentation: '日历插件，可以拖拽，制作日历规划'
+  },
+  {
+    icon: 'lucky.png',
+    link: 'https://100px.net/',
+    name: 'lucky-canvas',
+    presentation: '基于 JS + Canvas 实现的【大转盘 & 九宫格 & 老虎机】抽奖'
+  },
+  {
+    icon: 'dummyimage.ico',
+    link: 'https://dummyimage.com/',
+    name: 'Dynamic Dummy Image Generator',
+    presentation: '动态虚拟图像生成器，可以一个链接生成想要的简单图片'
   }
 ]
 
