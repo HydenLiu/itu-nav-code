@@ -47,7 +47,7 @@ export default () => {
   const getWebHotList = useCallback(() => {
     setCount(1)
     setIsLoad(true)
-    Request.get('https://v2.alapi.cn/api/new/wbtop?num=50&token=YaXkpHvm3IgSheyj').then(({ data }) => {
+    Request.get('https://hot.itudb.cn/api/hot').then(({ data }) => {
       const resList = data.map((item: iWeiboHot, i: number) => {
         const obj = item
         if (i === 0) obj.color = '#ff2a2a'
