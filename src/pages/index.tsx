@@ -47,7 +47,7 @@ export default () => {
   const getWebHotList = useCallback(() => {
     setCount(1)
     setIsLoad(true)
-    Request.get('https://hot.itudb.cn/api/hot').then(({ data }) => {
+    Request.get('https://api.itudb.cn/api/hot').then(({ data }) => {
       const resList = data.map((item: iWeiboHot, i: number) => {
         const obj = item
         if (i === 0) obj.color = '#ff2a2a'
