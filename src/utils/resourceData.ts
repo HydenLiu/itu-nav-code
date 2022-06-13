@@ -204,7 +204,7 @@ export const frameData = [
   },
   {
     icon: 'vue.png',
-    link: 'https://v3.cn.vuejs.org/',
+    link: 'https://staging-cn.vuejs.org/',
     name: 'vue3',
     presentation: 'vue 3.x官网'
   },
