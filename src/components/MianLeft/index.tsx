@@ -34,15 +34,15 @@ const MainLeft = () => {
           <Card className='card' bordered={false}>
             {
               main.list.map((resource: IResource) =>
-                <a href={resource.link} target='_blank' key={resource.name} rel='noreferrer'>
-                  <Card.Grid className='gird-style'>
-                    <Tooltip placement='bottom' title={resource.presentation} color={itudb_theme}>
-                      <Avatar shape='square' className={`bg-${resource.background}`} icon={<Icons.PictureOutlined />} src={oss + main.key + '/' + resource.icon} />
-                    </Tooltip>
-                    <div className='resource-name'>{resource.name}</div>
-                  { resource.presentation && <div className='resource-name font-12 text-faild'>{resource.presentation}</div>}
-                  </Card.Grid>
-                </a>
+                <Card.Grid className='gird-style'>
+                  <a href={resource.link} target='_blank' key={resource.name} rel='noreferrer'>
+                      <Tooltip placement='bottom' title={resource.presentation} color={itudb_theme}>
+                        <Avatar shape='square' className={`bg-${resource.background}`} icon={<Icons.PictureOutlined />} src={oss + main.key + '/' + resource.icon} />
+                      </Tooltip>
+                      <div className='resource-name'>{resource.name}</div>
+                    { resource.presentation && <div className='resource-name font-12 text-faild'>{resource.presentation}</div>}
+                  </a>
+                </Card.Grid>
               )
             }
           </Card>
