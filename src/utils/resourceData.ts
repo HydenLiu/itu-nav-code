@@ -115,6 +115,12 @@ export const onlineData = [
     presentation: 'PNG/JPG 图片在线压缩工具'
   },
   {
+    icon: '',
+    link: 'https://icones.js.org/',
+    name: 'icones',
+    presentation: '图标库'
+  },
+  {
     icon: 'Illustrations.png',
     link: 'https://undraw.co/illustrations',
     name: 'Illustrations',
@@ -285,6 +291,12 @@ export const uiFrameData = [
     presentation: 'vue 3.x 的 element ui官网'
   },
   {
+    icon: '',
+    link: 'https://www.naiveui.com/zh-CN/os-theme',
+    name: 'Naïve UI',
+    presentation: '一个 Vue 3 组件库,比较完整，主题可调，使用 TypeScript, 快, 有点意思'
+  },
+  {
     icon: 'antd.png',
     link: 'https://ant.design/index-cn',
     name: 'Ant Design',
@@ -295,6 +307,12 @@ export const uiFrameData = [
     link: 'https://www.antdv.com/docs/vue/introduce-cn/',
     name: 'Ant Design Vue',
     presentation: 'Ant Design 的 Vue 实现，开发和服务于企业级后台产品'
+  },
+  {
+    icon: '',
+    link: 'https://mobile.ant.design/zh/components/button',
+    name: 'Ant Design Mobile',
+    presentation: '探索移动端 Web 的体验极限'
   },
   {
     icon: 'arco.ico',
@@ -353,6 +371,12 @@ export const classlibData = [
     link: 'https://antv.gitee.io/zh',
     name: 'AntV',
     presentation: '蚂蚁集团全新一代数据可视化解决方案'
+  },
+  {
+    icon: 'vue-use.png',
+    link: 'https://vueuse.org/',
+    name: 'VueUse',
+    presentation: 'Collection of essential Vue Composition Utilities'
   },
   {
     icon: 'lodash.ico',
