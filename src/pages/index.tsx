@@ -234,7 +234,7 @@ export default () => {
               className='ml-px-8'
               onClick={(e) => {
                 e.preventDefault()
-                window.open('https://github.com/sunupdong')
+                window.open('https://github.com/HydenLiu')
               }}
             />
           </Tooltip>
