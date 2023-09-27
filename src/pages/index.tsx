@@ -29,7 +29,7 @@ interface iResule {
 }
 
 export default () => {
-  const bgImg = getLocal('bg') || 'https://img.itudb.cn/background-images/win_bg1.jpg'
+  const bgImg = getLocal('bg') || 'https://itudb-images.vercel.app/background-images/win_bg1.jpg'
   const itudb_theme = getLocal('itudb_theme') || '#f09393'
 
   const [isBaidu, setIsBaidu] = useState(true)

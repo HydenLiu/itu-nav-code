@@ -264,9 +264,9 @@ export const frameData = [
   },
   {
     icon: 'next.ico',
-    link: 'https://www.nextjs.cn/',
-    name: 'Nextjs',
-    presentation: 'React服务端渲染解决方案'
+    link: 'https://nextjs.org/',
+    name: 'Next.js',
+    presentation: 'The React Framework for the Web'
   },
   {
     icon: 'tailwindcss.png',

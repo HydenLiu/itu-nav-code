@@ -15,7 +15,7 @@ interface IResource {
 }
 
 const MainLeft = () => {
-  const oss = 'https://img.itudb.cn/'
+  const oss = 'https://itudb-images.vercel.app/'
   const itudb_theme = getLocal('itudb_theme') ? getLocal('itudb_theme') : '#f09393'
 
   const IconCustom = (name: string) => {

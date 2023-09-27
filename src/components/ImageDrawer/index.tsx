@@ -21,7 +21,7 @@ const ImageDrawer = (props: iProps) => {
     <section className='image-wrap'>
       {
         emptyList.map(num => {
-          const img = `https://img.itudb.cn/background-images/win_bg${num}.jpg`
+          const img = `https://itudb-images.vercel.app/background-images/win_bg${num}.jpg`
           return (
             <Image
               key={num}
