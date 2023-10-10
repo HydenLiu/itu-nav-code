@@ -24,7 +24,7 @@ export default {
   ),
   entry: path.join(__dirname, 'src', 'index.tsx'),
   silent: true,
-  sideRoot: 'https://itudb.cn',
+  sideRoot: 'https://itu.hydenliu.me',
   devServer: {
     port: 4518,
     host: '127.0.0.1'
