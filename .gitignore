@@ -11,7 +11,6 @@ _roadhog-api-doc
 
 # production
 /dist
-/.vscode
 
 # misc
 .DS_Store
@@ -22,7 +21,6 @@ yarn-error.log
 yarn.lock
 package-lock.json
 *bak
-.vscode
 
 # visual studio code
 .history
@@ -36,3 +34,5 @@ screenshot
 .eslintcache
 
 build
+
+.next

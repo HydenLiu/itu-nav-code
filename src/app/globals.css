@@ -1,0 +1,139 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'digital-7-mono';
+  src: url('@/assets/fonts/digital-7-mono.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'title-font';
+  src: url('@/assets/fonts/title-font.ttf') format('truetype');
+}
+
+.font-digital {
+  font-family: 'digital-7-mono', monospace;
+}
+.font-title {
+  font-family: 'title-font', sans-serif;
+}
+
+:root {
+  --primary-color: #f09393;
+  --primary-virtual-color: #f0939380;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-virtual-color);
+}
+
+/* 透明模式样式 */
+.ghost-mode {
+  background: transparent !important;
+  backdrop-filter: blur(10px);
+}
+
+.ghost-mode .card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Base UI 动画支持 */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes exit {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.animate-in {
+  animation: enter 0.2s ease-out;
+}
+
+.animate-out {
+  animation: exit 0.15s ease-in;
+}
+
+.fade-in {
+  --tw-enter-opacity: initial;
+  --tw-exit-opacity: initial;
+  animation-name: fadeIn;
+}
+
+.fade-out {
+  animation-name: fadeOut;
+}
+
+.zoom-in-95 {
+  --tw-enter-scale: 0.95;
+  animation-name: enter;
+}
+
+.zoom-out-95 {
+  --tw-exit-scale: 0.95;
+  animation-name: exit;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* 响应式断点 */
+@media (max-width: 768px) {
+  .next-box {
+    padding: 0 16px;
+  }
+}
